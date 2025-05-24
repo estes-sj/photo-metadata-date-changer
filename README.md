@@ -4,7 +4,7 @@ Simple python script that uses `piexif` and `pillow` to add/update the photos in
 
 ## How to Use
 
-Assuming you have `git` and `python` installed:
+Assuming you have `git`, `pip`, and `python` installed:
 
 1. Clone this repo (or download directly)
    ```bash
@@ -14,18 +14,22 @@ Assuming you have `git` and `python` installed:
    ```bash
    cd photo-metadata-date-changer
    ```
-3. Manually edit the configuration section of `main.py` to match your folder containing the photos to be edited and the desired date:
+3. Install the neccessary python packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Manually edit the configuration section of `main.py` to match your folder containing the photos to be edited and the desired date:
    ```python
    # Path to your folder
    FOLDER_PATH = r"C:\example\path\to\your\folder"
    # Replacement date
    replacement_date_str = "2022:04:22"
    ```
-4. Run the script:
+5. Run the script:
    ```bash
    python main.py
    ```
-5. If photos were successfully found, the number of photos to be changed and the first 10 found will be displayed. You will be asked to confirm changes by typing `y` and then hitting `ENTER`. Type anything else to cancel.
+6. If photos were successfully found, the number of photos to be changed and the first 10 found will be displayed. You will be asked to confirm changes by typing `y` and then hitting `ENTER`. Type anything else to cancel.
 
 ## Example Run
 
@@ -38,7 +42,7 @@ FOLDER_PATH = r"C:\Users\Samuel\Downloads\2bac1124ae8d39f9773e759813cb0f26987ed3
 replacement_date_str = "2022:04:22"
 ```
 
-**Termianl Output:**
+**Terminal Output:**
 
 ```bash
 Samuel@DESKTOP-QST8A15 MINGW64 //teetunk.dev/user_share/Tools/Photo Metadata Date Changer
