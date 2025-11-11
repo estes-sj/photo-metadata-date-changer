@@ -51,17 +51,17 @@ python main.py [OPTIONS]
 
 ## 🧭 Arguments
 
-| Argument                    | Type        | Default                     | Description                                                                                |
-| --------------------------- | ----------- | --------------------------- | ------------------------------------------------------------------------------------------ | ---------------------------- |
-| `--folder`, `-f`            | `str`       | `FOLDER_PATH` from config   | Path to the folder containing photos                                                       |
-| `--datetime`, `-d`          | `str`       | `2025:11:03 11:45:00+00:00` | Base datetime (UTC, format: `YYYY:MM:DD HH:MM:SS+00:00` or ISO8601 `YYYY-MM-DDTHH:MM:SSZ`) |
-| `--increment-seconds`, `-i` | `int`       | `1`                         | Seconds to increment per file in increment mode                                            |
-| `--no-increment`            | flag        | —                           | Disable incremental offsets (use same timestamp for all)                                   |
-| `--recursive`, `-r`         | flag        | —                           | Include subfolders                                                                         |
-| `--sort-by`                 | `name`      | `mtime`                     | `name`                                                                                     | Sort order in increment mode |
-| `--mode`                    | `increment` | `align-earliest`            | `increment`                                                                                | How timestamps are assigned  |
-| `--yes`, `-y`               | flag        | —                           | Skip confirmation prompt                                                                   |
-| `--dry-run`                 | flag        | —                           | Show what changes would be made (no writes)                                                |
+| Argument                    | Type  | Default                   | Description                                                                                                             |
+| --------------------------- | ----- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `--folder`, `-f`            | `str` | `FOLDER_PATH` from config | Path to the folder containing photos to process. Can be relative or absolute.                                           |
+| `--datetime`, `-d`          | `str` | `2025:11:03 11:45:00`     | Base datetime to apply (format: `YYYY:MM:DD HH:MM:SS`). In `increment` mode, the first file uses this time.             |
+| `--increment-seconds`, `-i` | `int` | `1`                       | Number of seconds to add per file in `increment` mode. Useful to maintain chronological order between photos.           |
+| `--no-increment`            | flag  | —                         | If set, all files use the same timestamp instead of applying incremental offsets.                                       |
+| `--recursive`, `-r`         | flag  | —                         | Process files in subfolders recursively.                                                                                |
+| `--sort-by`                 | `str` | `name`                    | Sorting method for `increment` mode: `name` (alphabetically) or `mtime` (by original file modified time).               |
+| `--mode`                    | `str` | `increment`               | How timestamps are applied: `increment` (adds offset per file) or `align-earliest` (shifts all preserving differences). |
+| `--yes`, `-y`               | flag  | —                         | Skip the confirmation prompt before applying changes.                                                                   |
+| `--dry-run`                 | flag  | —                         | Show what changes would be made without modifying files. Helpful for verification before running actual changes.        |
 
 ---
 
