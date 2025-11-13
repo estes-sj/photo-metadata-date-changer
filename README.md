@@ -1,62 +1,12 @@
 # 📸 Photo Metadata Date Changer
 
+🚀 **[Download the latest release (executables included)](https://github.com/estes-sj/photo-metadata-date-changer/releases)** - Click here to get started immediately!
+
 A Python tool that updates **EXIF metadata** (for JPEGs) and **filesystem timestamps** for all files in a given folder.
 It supports incremental timestamps, aligning photo times based on the earliest photo, recursive processing, and GUI/CLI modes.
 
-## Interface Options
-
-### Graphical Interface
-
-Launch the GUI via:
-
-```bash
-python main.py --gui
-```
-
-> [!NOTE]
-> Releases are also built as a standalone `.exe` that can be downloaded from the `./release` folder (e.g. `PhotoMetadataDateChanger_v0.1.0.exe`).
-
-### Command-Line Mode
-
-Run via:
-
-```bash
-python main.py [OPTIONS]
-```
-
-**Example GUI startup window:**
-
 <p align="center">
   <img src="docs/img/gui_progress.png" alt="GUI Progress Screenshot"/>
-</p>
-
-## Quick Reference
-
-| Use Case                    | Example Command                                                                | Description                                                                          |
-| --------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| Preview changes (no writes) | `python main.py --dry-run -f "C:\Photos"`                                      | Safe preview without modifying any files                                             |
-| Increment timestamps        | `python main.py --datetime "2025:11:03 11:45:00" -i 2 -f "C:\Photos"`          | Adds +2s between each file, starting from given date                                 |
-| Align earliest photo        | `python main.py --mode align-earliest -d "2025:11:03 11:45:00" -f "C:\Photos"` | Keeps relative spacing between photos, shifts all so the earliest matches given date |
-| Recursive processing        | `python main.py -r -y -f "D:\AllAlbums"`                                       | Processes subfolders too (no prompt)                                                 |
-| Fixed time (no increment)   | `python main.py --no-increment -y -d "2024:12:31 23:59:00" -f "C:\DCIM"`       | Sets all photos to exactly the same timestamp                                        |
-| Full auto run               | `python main.py --mode align-earliest -r -y -f "E:\CameraDump"`                | Recursive + align-earliest + skip confirmation                                       |
-
-## GUI Overview
-
-The GUI offers an interface with:
-
-- Folder selector
-- Datetime picker
-- Options for mode (`increment` / `align-earliest`)
-- Sorting, recursion, dry-run toggles
-- Progress bar and logging console
-- Safe cancel operation (via background threading)
-- Tooltips for all fields that provide helpful descriptions
-
-**Example run in GUI:**
-
-<p align="center">
-  <img src="docs/img/gui_complete.png" alt="GUI Complete Screenshot"/>
 </p>
 
 ## Features
@@ -68,6 +18,23 @@ The GUI offers an interface with:
 - Optional recursive mode
 - **Dry-run mode** for verification
 - **Graphical interface** for non-CLI users
+
+## GUI Overview
+
+The GUI offers an interface with all the above features and:
+
+- Folder selector
+- Datetime picker
+- Sorting, recursion, dry-run toggles
+- Progress bar and logging console
+- Safe cancel operation (via background threading)
+- Tooltips for all fields that provide helpful descriptions
+
+**Example run in GUI:**
+
+<p align="center">
+  <img src="docs/img/gui_complete.png" alt="GUI Complete Screenshot"/>
+</p>
 
 ## Installation
 
@@ -101,6 +68,17 @@ or use the command-line interface via the arguments below.
 | `--yes`, `-y`               | flag  | -                     | Skip confirmation prompt.                                     |
 | `--dry-run`                 | flag  | -                     | Preview without writing changes.                              |
 | `--gui`                     | flag  | -                     | Launch the GUI instead of CLI.                                |
+
+## CLI Quick Reference
+
+| Use Case                    | Example Command                                                                | Description                                                                          |
+| --------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| Preview changes (no writes) | `python main.py --dry-run -f "C:\Photos"`                                      | Safe preview without modifying any files                                             |
+| Increment timestamps        | `python main.py --datetime "2025:11:03 11:45:00" -i 2 -f "C:\Photos"`          | Adds +2s between each file, starting from given date                                 |
+| Align earliest photo        | `python main.py --mode align-earliest -d "2025:11:03 11:45:00" -f "C:\Photos"` | Keeps relative spacing between photos, shifts all so the earliest matches given date |
+| Recursive processing        | `python main.py -r -y -f "D:\AllAlbums"`                                       | Processes subfolders too (no prompt)                                                 |
+| Fixed time (no increment)   | `python main.py --no-increment -y -d "2024:12:31 23:59:00" -f "C:\DCIM"`       | Sets all photos to exactly the same timestamp                                        |
+| Full auto run               | `python main.py --mode align-earliest -r -y -f "E:\CameraDump"`                | Recursive + align-earliest + skip confirmation                                       |
 
 ## Modes Explained
 
