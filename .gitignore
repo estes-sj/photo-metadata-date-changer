@@ -1,0 +1,6 @@
+__pycache__/
+misc/
+build/
+dist/
+PhotoMetadataDateChanger.spec
+PhotoMetadataDateChanger.exe

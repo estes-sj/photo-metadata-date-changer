@@ -1,2 +1,2 @@
-piexif
 Pillow
+piexif
